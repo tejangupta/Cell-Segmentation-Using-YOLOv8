@@ -161,3 +161,4 @@ cython_debug/
 
 # Artifacts
 artifacts/*
+yolov8l-seg.pt

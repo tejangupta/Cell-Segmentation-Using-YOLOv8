@@ -24,7 +24,7 @@ class ModelTrainer:
             os.system(
                 f"yolo task=segment mode=train model={self.model_trainer_config.weight_name} \
                 data=data.yaml epochs={self.model_trainer_config.no_epochs} \
-                batch-size={self.model_trainer_config.batch_size} imgsz=640 save=true")
+                batch={self.model_trainer_config.batch_size} imgsz=640 save=true")
 
             os.makedirs(self.model_trainer_config.model_trainer_dir, exist_ok=True)
             os.system(f"cp runs/segment/train/weights/best.pt {self.model_trainer_config.model_trainer_dir}/")
