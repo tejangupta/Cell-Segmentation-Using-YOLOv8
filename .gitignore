@@ -162,3 +162,6 @@ cython_debug/
 # Artifacts
 artifacts/*
 yolov8l-seg.pt
+
+data/inputImage.jpg
+runs/*

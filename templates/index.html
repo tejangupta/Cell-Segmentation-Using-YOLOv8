@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<!-- meta -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<!-- title -->
+		<title>Cell Segmentation</title>
+
+		<!-- stylesheet -->
+		<link rel="icon" type="image/x-icon" href="/static/images/cell.png">
+		<link rel="stylesheet" href="/static/css/styles.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<!-- scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+		</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+		</script>
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="bg-primary text-center py-5 mb-4">
+			<div class="container">
+	  			<h1 class="font-weight-light text-white">Cell Segmentation using YOLOv8</h1>
+			</div>
+  		</header>
+
+  		<!-- Page Content -->
+  		<div class="container">
+			<div class="row">
+	  			<!-- Team Member 1 -->
+	  			<div class="col-xl-6 col-md-6 col-sm-6 mb-6">
+					<div class="card border-0 shadow upload-image ">
+						<video autoplay id="video" poster="https://img.freepik.com/free-vector/group-young-people-posing-photo_52683-18824.jpg?size=338&ext=jpg"></video>
+						<img src="" class="" id="photo" alt="">
+						<canvas style="display:none;" id="canvas"></canvas>
+					</div>
+	  			</div>
+
+				<!-- Team Member 2 -->
+	  			<div class="col-xl-6 col-md-6 col-sm-6 mb-6">
+					<div class="card border-0 shadow res-part2">
+		  				<div class="card-body text-center">
+							<h5 class="card-title mb-0">Prediction Results</h5>
+		  				</div>
+					</div>
+	  			</div>
+			</div>
+
+			<div class="text-center my-4">
+				<button id="send" type="button" class="btn btn-success col-4">Predict</button>
+			</div>
+
+			<!-- Add a label for sample images -->
+			<div class="sample-images-container">
+				<p style="font-weight: bold; font-size: 18px;">Please pick any one for prediction</p>
+			</div>
+
+			<div class="row">
+				<!-- Sample Images -->
+				<div class="col-md-3">
+					<img src="/static/images/1.jpg" class="sample-image" alt="Sample Image 1" data-image-name="1.jpg">
+				</div>
+				<div class="col-md-3">
+					<img src="/static/images/2.jpg" class="sample-image" alt="Sample Image 2" data-image-name="2.jpg">
+				</div>
+				<div class="col-md-3">
+					<img src="/static/images/3.jpg" class="sample-image" alt="Sample Image 3" data-image-name="3.jpg">
+				</div>
+				<div class="col-md-3">
+					<img src="/static/images/4.jpg" class="sample-image" alt="Sample Image 4" data-image-name="4.jpg">
+				</div>
+
+				<!-- Change URL Value -->
+				<div class="col-xl-6 col-md-6 col-sm-6 mb-6">
+					<input type="hidden" class="form-control mr-2" id="url" placeholder="Enter REST Api url..." value="../predict" />
+					<input name="upload" type="file" id="file-input" style="position:absolute;top:-500px; display: none;" /><br />
+				</div>
+			</div>
+  		</div>
+
+		<div id="loading">
+			<div class="loader"></div>
+		</div>
+
+		<!-- script -->
+		<script src="/static/js/script.js"></script>
+	</body>
+</html>
