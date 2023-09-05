@@ -2,8 +2,10 @@ from flask import Flask, render_template, request, Response, jsonify
 from flask_cors import CORS, cross_origin
 from cellSegmentation.utils.main_utils import decodeImage, encodeImageIntoBase64
 import os
-from cellSegmentation.constant.application import APP_HOST, APP_PORT
 import shutil
+
+os.putenv('LANG', 'en_US.UTF-8')
+os.putenv('LC_ALL', 'en_US.UTF-8')
 
 app = Flask(__name__)
 CORS(app)
@@ -15,11 +17,12 @@ class ClientApp:
 
 
 @app.route("/")
+@cross_origin()
 def home():
     return render_template("index.html")
 
 
-@app.route("/predict", methods=['POST', 'GET'])
+@app.route("/predict", methods=['POST'])
 @cross_origin()
 def predictRoute():
     try:
@@ -45,5 +48,4 @@ def predictRoute():
 
 if __name__ == "__main__":
     clApp = ClientApp()
-    app.run(host=APP_HOST, port=APP_PORT)
     app.run(host='0.0.0.0', port=80)  # For AZURE

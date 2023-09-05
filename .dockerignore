@@ -1,0 +1,11 @@
+# Exclude everything by default
+*
+
+# Include app.py and its dependencies
+!artifacts/model_trainer
+!cellSegmentation/utils/main_utils.py
+!data
+!static
+!templates
+!app.py
+!requirements.txt
